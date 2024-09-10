@@ -12,6 +12,9 @@ export const verifyToken = (req: Request, res: Response, next: NextFunction): vo
 
 	const userToken = getUserToken()
 
+	console.log('Token recebido:', req.headers['authorization'])
+	console.log('Token esperado:', getUserToken())
+
 	if(token !== userToken) {
 		res.status(403).send({ message: 'Token inválido.' })
 		return

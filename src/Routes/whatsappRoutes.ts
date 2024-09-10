@@ -11,10 +11,7 @@ import { verifyToken } from '../Middlewares/verifyToken'
 
 const router = Router()
 
-router.get('/start-socket', (req, res, next) => {
-	console.log('Chamando rota /start-socket')
-	next()
-}, startSocketWhatsApp)
+router.get('/start-socket', startSocketWhatsApp)
 router.get('/get-qr-code', verifyToken, getQRCode)
 router.get('/logs', verifyToken, getLogsController)
 router.post('/stop-socket', verifyToken, stopSocketWhatsApp)

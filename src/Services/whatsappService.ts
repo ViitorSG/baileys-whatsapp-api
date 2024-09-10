@@ -79,12 +79,10 @@ export const startSock = async() => {
 const handleDisconnection = (statusCode?: number) => {
 	switch (statusCode) {
 	case DisconnectReason.restartRequired:
-		logger.warn('Reinício necessário, reconectando...')
-		startSock()
+		logger.warn('Reinício necessário...')
 		break
 	case DisconnectReason.connectionLost:
-		logger.warn('Conexão perdida, reconectando...')
-		startSock()
+		logger.warn('Conexão perdida...')
 		break
 	case DisconnectReason.loggedOut:
 		logger.info('Usuário deslogado.')
